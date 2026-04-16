@@ -2,43 +2,43 @@
 using namespace std;
 
 int element[10];
-int npanjang;
+int nPanjang;
 int x;
 
 void input()
 {
     while (true)
     {
-        cout << "masukkan anyaknya element pada array (maksimal 10):";
-        cin >> npanjang;
+        cout << "Masukkan banyaknya elemen pada array (maksimal 10): ";
+        cin >> nPanjang;
 
-        if (npanjang <= 10)
-        { 
+        if (nPanjang <= 10)
+        {
             break;
-        } 
+        }
         else
         {
-            cout << "\n[!] Maaf, jumlah element maksimal adalah 10. Silakan coba lagi.\n\n";
+            cout << "\n[!] Jumlah elemen tidak boleh lebih dari 10. Silakan coba lagi.\n";
         }
+    }
 
+    cout << "\n============================================\n";
+    cout << "          Masukkan Elemen Array             \n";
+    cout << "============================================\n";
+
+    for (int i = 0; i < nPanjang; i++)
+    {
+        cout << "Data ke-" << (i + 1) << " = ";
+        cin >> element[i];
     }
 }
-cout << "\n==============================\n";
-cout << "Masukkan elemen array:\n";
-cout << "==============================\n";
 
-for (int i = 0; i < npanjang; i++)
-{
-    cout << "Element ke-" << i + 1 << ": ";
-    cin >> element[i];
-}
-
-void bubbleSortArray ()
+void bubbleSortArray()
 {
     int pass = 1;
     do
     {
-        for (int j = 0; j < npanjang - pass; j++)
+        for (int j = 0; j <= nPanjang - 1 - pass; j++)
         {
             if (element[j] > element[j + 1])
             {
@@ -48,57 +48,55 @@ void bubbleSortArray ()
             }
         }
         pass++;
-    } while (pass <= npanjang - 1);
+    } while (pass <= nPanjang - 1);
 }
 
 void display()
 {
-    cout << "\n==============================\n";
-    cout << "Elemen array setelah diurutkan:\n";
-    cout << "==============================\n";
+    cout << "\n============================================\n";
+    cout << "  Elemen Array Setelah Diurutkan (Asc)\n";
+    cout << "============================================\n";
 
-    for (int j = 0; j < npanjang; j++)
+    for (int j = 0; j < nPanjang; j++)
     {
         cout << element[j];
-        if (j < npanjang - 1)
+        if (j < nPanjang - 1)
         {
             cout << " -> ";
         }
     }
-cout << endl;
+    cout << endl;
 }
 
-void binarysearch()
+void binarySearch()
 {
     char ulang;
     do
     {
-        cout << "\n=============================\n";
-        cout << "     Pencarian Binary Search \n";
-        cout << "=============================\n";
+        cout << "\n========================================\n";
+        cout << "        Pencarian Binary Search        \n";
+        cout << "========================================\n";
 
-        cout << "Masukkan element yang ingin dicari: ";
+        cout << "Masukkan elemen yang ingin dicari: ";
         cin >> x;
 
         int low = 0;
-        int high = npanjang - 1;
+        int high = nPanjang - 1;
 
         do
         {
-            int mid = (low + high) /2;
+            int mid = (low + high) / 2;
 
             if (element[mid] == x)
             {
-                cout << "\n[✅] Elemen " << x << " ditemukan pada index " << mid << ".\n";
-                return;
+                cout << "\n[✓] Elemen " << x << " ditemukan pada indeks " << mid << "\n";
+                break;
             }
-                
-            if (x < element[mid])
+            else if (x < element[mid])
             {
                 high = mid - 1;
             }
-            
-            if (x > element[mid])
+            else
             {
                 low = mid + 1;
             }
@@ -107,10 +105,19 @@ void binarysearch()
 
         if (low > high)
         {
-            cout << "\n[❌] Elemen " << x << " tidak ditemukan dalam array.\n";
+            cout << "\n[x] Elemen " << x << " tidak ditemukan dalam array.\n";
         }
 
-        cout << "\nApakah Anda ingin mencari elemen lain? (y/n): ";
+        cout << "\nIngin mencari lagi? (y/n): ";
         cin >> ulang;
-            
 
+    } while (ulang == 'y' || ulang == 'Y');
+}
+
+int main()
+{
+    input();
+    bubbleSortArray();
+    display();
+    binarySearch();
+}
