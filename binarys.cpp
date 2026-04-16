@@ -12,7 +12,15 @@ void input()
         cout << "masukkan anyaknya element pada array (maksimal 10):";
         cin >> npanjang;
 
-        
+        if (npanjang <= 10)
+        { 
+            break;
+        } 
+        else
+        {
+            cout << "\n[!] Maaf, jumlah element maksimal adalah 10. Silakan coba lagi.\n\n";
+        }
 
     }
 }
+
