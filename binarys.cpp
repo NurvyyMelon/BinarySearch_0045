@@ -9,6 +9,10 @@ void input()
 {
     while (true)
     {
-        cout << "masukkan anyaknya element pada array (maksimal 10):"
+        cout << "masukkan anyaknya element pada array (maksimal 10):";
+        cin >> npanjang;
+
+        
+
     }
 }
