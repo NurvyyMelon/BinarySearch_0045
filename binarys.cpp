@@ -32,3 +32,5 @@ for (int i = 0; i < npanjang; i++)
     cout << "Element ke-" << i + 1 << ": ";
     cin >> element[i];
 }
+
+void bubbleSortArray ()
