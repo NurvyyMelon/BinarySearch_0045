@@ -48,6 +48,9 @@ void bubbleSortArray ()
             }
         }
         pass++;
-    } while (pass < npanjang);
-    
+    } while (pass <= npanjang - 1);
 }
+
+void display()
+{}
+
